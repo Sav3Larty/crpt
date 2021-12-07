@@ -1,0 +1,66 @@
+{{define "home"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/navigation.css">
+    <link rel="shortcut icon" href="#" />
+    <title>Forum</title>
+</head>
+
+<body>
+    <nav class="navigation-header">
+        <a href="/" id="main-page">
+            <h1>Forum</h1>
+        </a>
+        {{ if not .User.Authorized }}
+        <a href="/login" id="login">Log In</a> {{ else }}
+        <a href="/login" id="login">Log Out</a> {{ end }}
+    </nav>
+
+    <div class="feed">
+        <div class="feed-top">
+            <h2> Welcome, {{ .User.Username}}! </h2>
+            <form class="filter" action="/home" method="GET">
+                <select name="filter">
+                    {{ if .User.Authorized }}
+                    <option value="my-posts"> my posts </option>
+                    {{ end }}
+                </select>
+                <button id="send" type="submit"> Filter </button>
+            </form>
+
+        </div>
+
+
+        {{ if .User.Authorized }}
+        <div class="create-post">
+            <form enctype="multipart/form-data" action="/post/" method="POST">
+                <textarea type="text" name="text" id="input-post" placeholder="Create post..." required></textarea>
+
+                <label class="upload">
+                    <input type="file" name="Image" accept="image/png, image/jpeg, image/gif"
+                    autocomplete="off"
+                    hidden/>
+                    <span> Add image </span>
+                </label>
+
+                <div class="categories">
+                    <button id="send" type="submit"> Submit </button>
+
+                    <div class="category-checkbox">
+                        {{ range .Categories }}
+                        <label><input type="checkbox" name="category" value="{{.ID}}"> {{.Name}}</label> {{ end }}
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{ end }}
+    </div>
+</body>
+
+</html>
+{{end}}

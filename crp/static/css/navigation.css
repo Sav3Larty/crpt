@@ -1,0 +1,258 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #dae0e6;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    margin: 10px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+time {
+    color: rgb(122, 122, 122);
+    font-size: 15px;
+}
+
+label {
+    cursor: pointer;
+}
+
+pre {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: Calibri;
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+select {
+    background-color: #f4f6f8;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+textarea {
+    border: 1px solid rgb(241, 239, 239);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.navigation-header {
+    background-color: white;
+    position: inherit;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.feed {
+    align-self: center;
+    width: 800px;
+}
+
+.feed-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.post-bottom, .post-rating  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-header, .comment-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-image {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}  
+
+.comment-rating {
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+
+.rating {
+    text-align: center;
+    width: 30px;
+}
+
+.categories {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.category-checkbox {
+    background-color: #f4f6f8;
+    border-radius: 7px;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+button.rateButton {
+    border: none;
+    background-color: #dae0e64b;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 18px;
+    color: rgb(81, 143, 161);
+    width: 30px;
+    transition: transform .2s;
+}
+
+button.rateButton:hover {
+   cursor: pointer;
+   transform: scale(1.2);
+}
+
+.comments {
+    margin-top: 40px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.comment {
+    border: dotted 1px grey;
+    background-color: #f4f6f8;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.login-card {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin-top: 50px;
+    padding: 30px;
+    align-self: center;
+}
+
+.login-card-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.upload {
+    margin-top: 10px;
+    background-color: #518fa1;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    padding: 4px 8px;
+    cursor: pointer;
+    width: max-content;
+}
+
+.create-post form {
+    display: flex;
+    flex-direction: column;
+}
+
+#send {
+    background-color: #518fa1;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    color: white;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+#input-post, #input-comment {
+    resize: none;
+    width: 792px;
+    height: 60px;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: transform 0.3s;
+}
+
+#input-post:hover, #input-comment:hover {
+    transform: scale(1.2);
+}
+
+#login {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+@media screen and (max-width: 1000px) {
+    #input-post:hover, #input-comment:hover {
+        transform: scale(1.0);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .feed {
+        width: 375px;
+    }
+
+    .categories {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 65px;
+    }
+
+    #input-post,  #input-comment {
+        width: 368px;
+    }
+}

@@ -1,0 +1,55 @@
+{{define "post"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/navigation.css">
+    <link rel="shortcut icon" href="#" />
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/qrcode.js"></script>
+
+    <title>Forum</title>
+</head>
+
+<body>
+    <nav class="navigation-header">
+        <a href="/" id="main-page">
+            <h1>Forum</h1>
+        </a>
+        {{ if not .User.Authorized }}
+        <a href="/login" id="login">Log In</a> {{ else }}
+        <a href="/login" id="login">Log Out</a> {{ end }}
+    </nav>
+
+    <div class="feed">
+        <div class="post">
+            <div class="post-header">
+                <div>
+                    <span> <b> {{ .Post.Author }} </b></span>
+                    <span>·</span>
+                    <span>{{ .Post.CategoryName }}</span>
+                    <br>
+                    <div id="qrcode"></div>
+                    <script type="text/javascript">
+                        new QRCode(document.getElementById("qrcode"), window.location.href);
+                    </script>
+                </div>
+                <time> {{ .Post.CreationDate.Format "02-Jan 15:04" }}</time>
+            </div>
+
+            <pre>{{ .Post.Text }}</pre>
+
+            <img src="{{ .Post.Image }}"></img>
+
+        </div>
+
+
+
+    </div>
+</body>
+
+</html>
+{{end}}

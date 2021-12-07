@@ -1,0 +1,55 @@
+{{define "login"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/navigation.css">
+    <link rel="shortcut icon" href="#" />
+    <title>Forum</title>
+</head>
+
+<body>
+    <nav class="navigation-header">
+        <a href="/" id="main-page">
+            <h1>Forum</h1>
+        </a>
+        <a href="/login" id="login">Log In</a>
+    </nav>
+
+    <div class="login-card">
+        <p><b>Login:</b></p>
+        <form method="POST" action="/login">
+            <div class="login-card-elements">
+                <p>username</p>
+                <input name="username" minlength="5">
+                <p>password</p>
+                <input type="password" name="password" minlength="5">
+                <p><input id="send" value="Sign in" type="submit"></input>
+                </p>
+            </div>
+        </form>
+        <p>
+            <hr>
+        </p>
+        <p><b>First time? <br> Join the party:</b></p>
+        <form method="POST" action="/registration">
+            <div class="login-card-elements">
+                <p>email</p>
+                <input name="email" type="email">
+                <p>username</p>
+                <input name="username" minlength="5">
+                <p>password</p>
+                <input type="password" name="password" minlength="5">
+                <p><input id="send" value="Sign up" type="submit"></input>
+                </p>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+{{end}}
